@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>IP Calc</title>
+    </head>
+    <body>
+        <form action="{{ url_for('index') }}" method="post">
+            <h3>Subnet<h3>
+            <input type="text" name="subnet" /><br>
+            <h3>Split<h3>
+            <input type="text" name="new_prefix" />
+            <input type="submit" name="subnet info" />
+            {{ form.csrf_token }}
+        </form>
+    </body>
+</html>

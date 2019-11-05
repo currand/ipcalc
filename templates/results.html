@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>IP Calc</title>
+    </head>
+    <body>
+    <h2>Results</h2>
+        Network: {{ main_subnet['network'] }}<br>
+        Broadcast: {{ main_subnet['broadcast'] }}<br>
+        Range: {{ main_subnet['range'][0] }} - {{ main_subnet['range'][1] }}<br>
+        Mask: {{ main_subnet['mask'] }}<br>
+        HostAddrs: {{ main_subnet['hostaddrs'] }}<br>
+        HostMin: {{ main_subnet['hostmin'] }}<br>
+        HostMax: {{ main_subnet['hostmax'] }}<br>
+        <h2>New Prefixes</h2>
+        {% if new_prefixes_out is defined %}
+        {% for prefix in new_prefixes_out %}
+        Network: {{ prefix['network'] }}<br>
+        Broadcast: {{ prefix['broadcast'] }}<br>
+        Range: {{ prefix['range'][0] }} - {{ prefix['range'][1] }}<br>
+        Mask: {{ prefix['mask'] }}<br>
+        HostAddrs: {{ prefix['hostaddrs'] }}<br>
+        HostMin: {{ prefix['hostmin'] }}<br>
+        HostMax: {{ prefix['hostmax'] }}<br><br>
+        {% endfor %}
+        {% endif %}}
+
+    </body>
+</html>

@@ -13,6 +13,17 @@ def format_subnet(subnet):
 
     return output
 
+def subnet_info(subnet):
+
+    return {
+        'network': subnet.network_address,
+        'broadcast': subnet.broadcast_address,
+        'range': [subnet.network_address, subnet.broadcast_address],
+        'mask': subnet.netmask,
+        'hostaddrs': subnet.num_addresses,
+        'hostmin': subnet.network_address + 1,
+        'hostmax': subnet.broadcast_address - 1
+    }
 
 if __name__ == '__main__':
 
