@@ -3,7 +3,7 @@
         <title>IP Calc</title>
     </head>
     <body>
-    <h2>Results</h2>
+    <h2>Main Prefix</h2>
         Network: {{ main_subnet['network'] }}<br>
         Broadcast: {{ main_subnet['broadcast'] }}<br>
         Range: {{ main_subnet['range'][0] }} - {{ main_subnet['range'][1] }}<br>
@@ -22,7 +22,7 @@
         HostMin: {{ prefix['hostmin'] }}<br>
         HostMax: {{ prefix['hostmax'] }}<br><br>
         {% endfor %}
-        {% endif %}}
+        {% endif %}
 
     </body>
 </html>

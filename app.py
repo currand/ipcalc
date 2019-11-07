@@ -1,6 +1,6 @@
 import ipaddress
 from wtforms import StringField, IntegerField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Optional, IPAddress
 from flask_wtf import FlaskForm
 from flask import Flask, request, redirect, render_template, url_for, flash
 from ipcalc import subnet_info
@@ -12,7 +12,7 @@ app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 
 class IPCalcForm(FlaskForm):
     subnet = StringField('Subnet', validators=[DataRequired()])
-    new_prefix = IntegerField('New Prefix')
+    new_prefix = IntegerField('New Prefix', validators=[Optional()])
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -36,4 +36,4 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=80)
+    app.run(debug=True, port=8080)

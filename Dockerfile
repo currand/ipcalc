@@ -1,14 +1,10 @@
 FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
 
-# We copy just the requirements.txt first to leverage Docker cache
-COPY ./requirements.txt /app/requirements.txt
-
-WORKDIR /app
-
-RUN pip3 install -r requirements.txt
+WORKDIR = /app
 
 COPY . /app
 
-ENTRYPOINT [ "python3" ]
-
-CMD [ "app.py" ]
+ENV STATIC_URL /static
+ENV STATIC_PATH /app/static
+COPY ./requirements.txt /app/requirements.txt
+RUN pip install -r /app/requirements.txt
