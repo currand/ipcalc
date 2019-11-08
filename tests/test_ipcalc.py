@@ -1,10 +1,10 @@
 import pytest
 import ipaddress
-import ipcalc
+import functions
 
 def test_format_subnet():
     subnet = ipaddress.ip_network('2001:1960::/125')
-    assert ipcalc.format_subnet(subnet) == ['Network 2001:1960::', 
+    assert functions.format_subnet(subnet) == ['Network 2001:1960::', 
         'Broadcast 2001:1960::7', 
         'Range 2001:1960:: - 2001:1960::7', 
         'Mask ffff:ffff:ffff:ffff:ffff:ffff:ffff:fff8', 
@@ -14,7 +14,7 @@ def test_format_subnet():
 
 def test_subnet_info():
     subnet = ipaddress.ip_network('2001:1960::/125')
-    subnet_info = ipcalc.subnet_info(subnet)
+    subnet_info = functions.subnet_info(subnet)
     
     assert subnet_info == {
         'network': '2001:1960::',
